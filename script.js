@@ -1,7 +1,7 @@
 const newGridButton = document.getElementById('new-grid-button');
 const container = document.querySelector('.container');
 const clearGridBtn = document.getElementById('clear-grid')
-
+const heading = document.getElementById('.heading')
 // new grid button logic
 newGridButton.addEventListener('click',()=>{
     const gridSize = prompt('Enter the number of squraes per side(max 100):',16);
@@ -10,11 +10,13 @@ newGridButton.addEventListener('click',()=>{
     } else{
         alert('Invalid input. Please enter a number between 1 and 100.');
     }
+
 })
 
 //create grid function
 const createGrid =(size) => {
 container.innerHTML = "";
+
 
 //create new grid
 for(let i=0; i<size*size; i++){
@@ -26,6 +28,12 @@ for(let i=0; i<size*size; i++){
         const randomG = Math.floor(Math.random()*256);
         const randomB = Math.floor(Math.random()*256);
         square.style.backgroundColor = `rgb(${randomR},${randomG},${randomB})`
+
+
+        //Progressive darkening effect
+let currentOpacity = parseFloat(square.style.opacity) || 1;
+currentOpacity -= 0.1;
+square.style.opacity = currentOpacity.toString();
     });
     
     container.appendChild(square);
@@ -49,4 +57,4 @@ squares.forEach((square)=> {
 })
 
 //Initial grid creation
-createGrid(16);
+createGrid(16)
