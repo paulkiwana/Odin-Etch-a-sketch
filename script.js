@@ -1,7 +1,7 @@
 const newGridButton = document.getElementById('new-grid-button');
 const container = document.querySelector('.container');
 const clearGridBtn = document.getElementById('clear-grid')
-const heading = document.getElementById('.heading')
+const heading = document.querySelector('.heading')
 const hoverCountElement = document.querySelector('.hover-count');
 
 let squaresHoveredX = 0;
@@ -23,8 +23,8 @@ newGridButton.addEventListener('click',()=>{
 //create grid function
 const createGrid =(size) => {
 container.innerHTML = "";
-
-
+heading.style.display = "none";
+clearGridBtn.style.display = "block"
 //create new grid
 for(let i=0; i<size*size; i++){
     const square = document.createElement('div');
@@ -54,6 +54,7 @@ hoverCountElement.textContent = `${squaresHoveredX} X ${squaresHoveredY}`
 
 clearGridBtn.addEventListener('click', ()=>{
     container.innerHTML = ''
+    heading.style.display = "block";
 })
 
 //Update grid size
