@@ -2,6 +2,12 @@ const newGridButton = document.getElementById('new-grid-button');
 const container = document.querySelector('.container');
 const clearGridBtn = document.getElementById('clear-grid')
 const heading = document.getElementById('.heading')
+const hoverCountElement = document.querySelector('.hover-count');
+
+let squaresHoveredX = 0;
+let squaresHoveredY = 0;
+
+
 // new grid button logic
 newGridButton.addEventListener('click',()=>{
  
@@ -35,7 +41,12 @@ for(let i=0; i<size*size; i++){
 let currentOpacity = parseFloat(square.style.opacity) || 1;
 currentOpacity -= 0.1;
 square.style.opacity = currentOpacity.toString();
-    });
+   
+// increment squaresHoevered counters
+squaresHoveredX++;
+squaresHoveredY = Math.min(squaresHoveredY + 1, size); //cap at size
+hoverCountElement.textContent = `${squaresHoveredX} X ${squaresHoveredY}`
+});
     
     container.appendChild(square);
 }
@@ -46,14 +57,14 @@ clearGridBtn.addEventListener('click', ()=>{
 })
 
 //Update grid size
-container.style.width = `${420/size}px`
-container.style.height = `${420/size}px`
+container.style.width = `${480/size}px`
+container.style.height = `${480/size}px`
 
 // Update square size
 const squares = container.querySelector('.square');
 squares.forEach((square)=> {
-    square.style.width = `${420/size}px`
-    square.style.height = `${420/size}px`
+    square.style.width = `${480/size}px`
+    square.style.height = `${480/size}px`
 
 })
 
