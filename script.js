@@ -4,6 +4,7 @@ const clearGridBtn = document.getElementById('clear-grid')
 const heading = document.getElementById('.heading')
 // new grid button logic
 newGridButton.addEventListener('click',()=>{
+ 
     const gridSize = prompt('Enter the number of squraes per side(max 100):',16);
     if(gridSize > 0 && gridSize <= 100){
         createGrid(gridSize);
