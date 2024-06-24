@@ -21,7 +21,11 @@ for(let i=0; i<size*size; i++){
     const square = document.createElement('div');
     square.classList.add('square');
     square.addEventListener('mouseenter',()=>{
-        square.classList.add('hovered')
+        //Randomise RGB values
+        const randomR = Math.floor(Math.random()*256);
+        const randomG = Math.floor(Math.random()*256);
+        const randomB = Math.floor(Math.random()*256);
+        square.style.backgroundColor = `rgb(${randomR},${randomG},${randomB})`
     });
     
     container.appendChild(square);
