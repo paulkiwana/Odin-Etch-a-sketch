@@ -29,7 +29,9 @@ margin-top: 100px;
     left:170px;
     top:40px;
 }
-
+.hidden{
+display: none;
+}
 h1{
     position:relative;
     left:170px; 
@@ -48,3 +50,10 @@ body{
     background-color: rgb(2, 4, 36);
     color:aquamarine;
 }
+
+.hover-count{
+	background-color: black;
+	display: none;
+	width:70px;
+	height:30px;
+	}

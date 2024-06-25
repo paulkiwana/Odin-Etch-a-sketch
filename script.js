@@ -3,6 +3,9 @@ const container = document.querySelector('.container');
 const clearGridBtn = document.getElementById('clear-grid')
 const heading = document.querySelector('.heading')
 const hoverCountElement = document.querySelector('.hover-count');
+const backBtn = document.getElementById("back-btn");
+const hidden = document.querySelector(".hidden");
+
 
 let squaresHoveredX = 0;
 let squaresHoveredY = 0;
@@ -10,7 +13,7 @@ let squaresHoveredY = 0;
 
 // new grid button logic
 newGridButton.addEventListener('click',()=>{
- 
+ hidden.style.display = "block";
     const gridSize = prompt('Enter the number of squraes per side(max 100):',16);
     if(gridSize > 0 && gridSize <= 100){
         createGrid(gridSize);
@@ -24,7 +27,7 @@ newGridButton.addEventListener('click',()=>{
 const createGrid =(size) => {
 container.innerHTML = "";
 heading.style.display = "none";
-clearGridBtn.style.display = "block"
+
 //create new grid
 for(let i=0; i<size*size; i++){
     const square = document.createElement('div');
@@ -44,7 +47,8 @@ square.style.opacity = currentOpacity.toString();
    
 // increment squaresHoevered counters
 squaresHoveredX++;
-squaresHoveredY = Math.min(squaresHoveredY + 1, size); //cap at size
+squaresHoveredY = Math.min(squaresHoveredY + 1, size); //cap at size 
+	 hoverCountElement.style.display = "block"
 hoverCountElement.textContent = `${squaresHoveredX} X ${squaresHoveredY}`
 });
     
@@ -54,7 +58,16 @@ hoverCountElement.textContent = `${squaresHoveredX} X ${squaresHoveredY}`
 
 clearGridBtn.addEventListener('click', ()=>{
     container.innerHTML = ''
-    heading.style.display = "block";
+    
+});
+
+backBtn.addEventListener("click", ()=>{
+	heading.style.display = "block";
+        hidden.style.display = "none";
+hoverCountElement.style.display = "none";
+squaresHoveredX = 0;
+squaresHoveredY =0;
+createGrid(size)
 })
 
 //Update grid size
