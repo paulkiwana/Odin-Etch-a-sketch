@@ -67,7 +67,7 @@ backBtn.addEventListener("click", ()=>{
 hoverCountElement.style.display = "none";
 squaresHoveredX = 0;
 squaresHoveredY =0;
-createGrid(size)
+//createGrid(size)
 })
 
 //Update grid size
