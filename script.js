@@ -9,29 +9,40 @@ const hidden = document.querySelector(".hidden");
 
 let squaresHoveredX = 0;
 let squaresHoveredY = 0;
-
+window.addEventListener("load", ()=>{
+    heading.style.display = "block";
+    container.innerHTML = '';
+})
 
 // new grid button logic
 newGridButton.addEventListener('click',()=>{
  hidden.style.display = "block";
     const gridSize = prompt('Enter the number of squraes per side(max 100):',16);
+   
     if(gridSize > 0 && gridSize <= 100){
         createGrid(gridSize);
+        
     } else{
         alert('Invalid input. Please enter a number between 1 and 100.');
     }
-
+    
+   
 })
 
 //create grid function
 const createGrid =(size) => {
-container.innerHTML = "";
+container.style.width = `${(size/16) * (500)}px` 
+container.style.height = `${(size/16) * (500)}px`
 heading.style.display = "none";
-
+//sizeUpdate(size)
 //create new grid
 for(let i=0; i<size*size; i++){
     const square = document.createElement('div');
     square.classList.add('square');
+    //squareSize(size)
+    square.style.width = `${(16/size) * (26.25)}px`
+    square.style.height = `${(16/size) * (26.25)}px`
+    
     square.addEventListener('mouseenter',()=>{
         //Randomise RGB values
         const randomR = Math.floor(Math.random()*256);
@@ -51,9 +62,10 @@ squaresHoveredY = Math.min(squaresHoveredY + 1, size); //cap at size
 	 hoverCountElement.style.display = "block"
 hoverCountElement.textContent = `${squaresHoveredX} X ${squaresHoveredY}`
 });
-    
+
     container.appendChild(square);
 }
+
 }
 
 clearGridBtn.addEventListener('click', ()=>{
@@ -71,16 +83,19 @@ squaresHoveredY =0;
 })
 
 //Update grid size
-container.style.width = `${480/size}px`
-container.style.height = `${480/size}px`
+//container.style.width = `${(size/16) * (500)}px` 
+//container.style.height = `${(size/16) * (500)}px`
 
 // Update square size
-const squares = container.querySelector('.square');
+/*const squares = container.querySelector('.square');
 squares.forEach((square)=> {
-    square.style.width = `${480/size}px`
-    square.style.height = `${480/size}px`
 
-})
+    square.style.width = `${(16/size) * (26.25)}px`
+    square.style.height = `${(16/size) * (26.25)}px`
+    
+
+})*/
+
 
 //Initial grid creation
 createGrid(16)
