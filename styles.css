@@ -19,8 +19,8 @@ box-sizing: border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .square{
-	width: 26.25px;
-	height: 26.25px;
+	width: 26.3px;
+	height: 26.3px;
 	margin: 2px;
     background-color: #eee;
     
@@ -55,8 +55,8 @@ h1{
 body{
     background-color: rgb(2, 4, 36);
     color:aquamarine;
-height:100vh;
-margin:0;
+
+
 
 }
 

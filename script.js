@@ -1,6 +1,6 @@
 const newGridButton = document.getElementById('new-grid-button');
 const container = document.querySelector('.container');
-const clearGridBtn = document.getElementById('clear-grid')
+//const clearGridBtn = document.getElementById('clear-grid')
 const heading = document.querySelector('.heading')
 const hoverCountElement = document.querySelector('.hover-count');
 const backBtn = document.getElementById("back-btn");
@@ -31,8 +31,8 @@ newGridButton.addEventListener('click',()=>{
 
 //create grid function
 const createGrid =(size) => {
-//container.style.width = `${(size/16) * (500)}px` 
-//container.style.height = `${(size/16) * (500)}px`
+//container.style.width = 'auto' 
+//container.style.height = ''
 heading.style.display = "none";
 //sizeUpdate(size)
 //create new grid
@@ -40,8 +40,8 @@ for(let i=0; i<size*size; i++){
     const square = document.createElement('div');
     square.classList.add('square');
     //squareSize(size)
-    square.style.width = `${(16/size) * (26.25)}px`
-    square.style.height = `${(16/size) * (26.25)}px`
+    square.style.width = `${Math.floor((16/size) * (26.3))}px`
+    square.style.height = `${Math.floor((16/size) * (26.3))}px`
     
     square.addEventListener('mouseenter',()=>{
         //Randomise RGB values
@@ -68,14 +68,15 @@ hoverCountElement.textContent = `${squaresHoveredX} X ${squaresHoveredY}`
 
 }
 
-clearGridBtn.addEventListener('click', ()=>{
-    container.innerHTML = ''
+/*clearGridBtn.addEventListener('click', ()=>{
+   
     
-});
+});*/
 
 backBtn.addEventListener("click", ()=>{
 	heading.style.display = "block";
-        hidden.style.display = "none";
+   container.innerHTML = ''
+    hidden.style.display = "none";
 hoverCountElement.style.display = "none";
 squaresHoveredX = 0;
 squaresHoveredY =0;
