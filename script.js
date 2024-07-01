@@ -40,8 +40,8 @@ for(let i=0; i<size*size; i++){
     const square = document.createElement('div');
     square.classList.add('square');
     //squareSize(size)
-    square.style.width = `${Math.floor((16/size) * (26.3))}px`
-    square.style.height = `${Math.floor((16/size) * (26.3))}px`
+    square.style.width = `${Math.floor((480/size))}px`
+    square.style.height = `${Math.floor((480/size))}px`
     
     square.addEventListener('mouseenter',()=>{
         //Randomise RGB values
