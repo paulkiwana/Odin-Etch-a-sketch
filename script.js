@@ -33,6 +33,7 @@ newGridButton.addEventListener('click',()=>{
 const createGrid =(size) => {
 //container.style.width = 'auto' 
 //container.style.height = ''
+
 heading.style.display = "none";
 //sizeUpdate(size)
 //create new grid
